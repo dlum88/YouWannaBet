@@ -1,35 +1,32 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
-import Search from '../components/searchGames.jsx';
 import Dashboard from '../components/Dashboard.jsx';
+import Profile from '../components/Profile.jsx';
 
 class Home extends Component {
   login() {
-    this.props.auth.login();
+    this.auth.login();
   }
 
   render() {
-    const { isAuthenticated } = this.props.auth;
+    const { auth } = this.props;
     return (
       <div className="container">
         {
-          isAuthenticated() && (
+          auth.isAuthenticated() && (
             <div>
               <h4>
                 You are logged in!
               </h4>
               <div className="col-md-6 offset-md-3">
-                <Dashboard />
-              </div>
-              <div className="col-md-6 offset-md-3">
-                <h1>Search</h1>
-                <Search />
+                <Profile auth={this.auth} {...this.props} />
+                <Dashboard auth={this.auth} {...this.props} />
               </div>
             </div>
           )
         }
         {
-          !isAuthenticated() && (
+          !auth.isAuthenticated() && (
             <h4>
               You are not logged in! Please{' '}
               <a

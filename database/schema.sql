@@ -41,3 +41,30 @@ create table bet (
 );
 
 INSERT INTO app_user values(1,'testuser', 'testpassword', 10001);
+
+INSERT INTO app_user(username, password, points) values('frank_enstein', '123Password', 150000);
+INSERT INTO app_user(username, password, points) values('ella_vader', '123Password', 1000);
+INSERT INTO app_user(username, password, points) values('jed_dye', '123Password', 75000);
+
+INSERT INTO game(game_date, id_team_home, id_team_away, score_home, score_away, id_nba_team) 
+values('2019-03-06', 273, 277, null, null, '0021800969');
+
+INSERT INTO game(game_date, id_team_home, id_team_away, score_home, score_away, id_nba_team) 
+values('2019-03-02', 294, 281, null, null, '0021800938');
+
+INSERT INTO game(game_date, id_team_home, id_team_away, score_home, score_away, id_nba_team) 
+values('2019-02-14', 290, 292, 131, 122, '0021800866');
+
+INSERT INTO game(game_date, id_team_home, id_team_away, score_home, score_away, id_nba_team) 
+values('2019-02-14', 272, 291, 91, 106, '0021800865');
+
+
+INSERT INTO bet(id_game, amount, id_user_acceptor, id_user_poster) 
+values(3, 500, 2, 3);
+
+INSERT INTO bet(id_game, amount, id_user_acceptor, id_user_poster) 
+values(2, 1200, 4, 2);
+
+INSERT INTO bet(id_game, amount, id_user_acceptor, id_user_poster) 
+values(2, 200, 4, 2);
+

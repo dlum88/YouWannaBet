@@ -3,7 +3,7 @@ bower_components/
 *.log
 
 build/
-dist/
+
 package-lock.json
 
 # environmental variables

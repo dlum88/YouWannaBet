@@ -7,13 +7,14 @@ class Auth {
   idToken;
   expiresAt;
   auth0;
+  userProfile;
 
   auth0 = new auth0.WebAuth({
     domain: AUTH_CONFIG.domain,
     clientID: AUTH_CONFIG.clientId,
     redirectUri: AUTH_CONFIG.callbackUrl,
     responseType: 'token id_token',
-    scope: 'openid'
+    scope: 'openid profile'
   });
 
   login() {
@@ -28,6 +29,7 @@ class Auth {
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getIdToken = this.getIdToken.bind(this);
     this.renewSession = this.renewSession.bind(this);
+    this.getProfile = this.getProfile.bind(this);
   }
 
   handleAuthentication() {
@@ -87,6 +89,9 @@ class Auth {
 
     // navigate to the home route
     history.replace('/home');
+
+    // Remove user profile
+    this.userProfile = null;
   }
 
   isAuthenticated() {
@@ -94,6 +99,15 @@ class Auth {
     // access token's expiry time
     let expiresAt = this.expiresAt;
     return new Date().getTime() < expiresAt;
+  }
+
+  getProfile(callback) {
+    this.auth0.client.userInfo(this.accessToken, (err, profile) => {
+      if (profile) {
+        this.userProfile = profile;
+      }
+      callback(err, profile);
+    });
   }
 }
 

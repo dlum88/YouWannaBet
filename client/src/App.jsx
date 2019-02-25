@@ -1,21 +1,15 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
-// import axios from 'axios';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import IconButton from '@material-ui/core/IconButton';
+import { AppBar } from 'material-ui';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     items: [],
-  //     loggedIn: false,
-  //   };
-  // }
-
   componentDidMount() {
-    const { renewSession } = this.props.auth;
+    const { auth } = this.props;
 
     if (localStorage.getItem('isLoggedIn') === 'true') {
-      renewSession();
+      auth.renewSession();
     }
   }
 
@@ -33,45 +27,68 @@ class App extends Component {
 
   render() {
     const { isAuthenticated } = this.props.auth;
+
     return (
       <div>
-        <button
-          // bsStyle="primary"
-          type="button"
-          className="btn-margin"
-          onClick={this.goTo.bind(this, 'home')}
-        >
+        <MuiThemeProvider>
+          <AppBar>
+            <IconButton
+              type="button"
+              className="btn-margin"
+              onClick={this.goTo.bind(this, 'home')}
+            >
           Home
-        </button>
-        {
+            </IconButton>
+            <IconButton
+              type="button"
+              className="btn-margin"
+              onClick={this.goTo.bind(this, 'search')}
+            >
+          Search
+            </IconButton>
+            {
           !isAuthenticated() && (
-            <button
+            <IconButton
               id="qsLoginBtn"
-              // bsStyle="primary"
               type="button"
               className="btn-margin"
               onClick={this.login.bind(this)}
             >
               Log In
-            </button>
+            </IconButton>
           )
         }
-        {
+            {/* {
+              isAuthenticated() && (
+                <IconButton
+                  className="btn-margin"
+                  onClick={this.goTo.bind(this, 'profile')}
+                >
+                  Profile
+                </IconButton>
+              )
+            } */}
+            {
           isAuthenticated() && (
-            <button
+            <IconButton
               id="qsLogoutBtn"
-              // bsStyle="primary"
               type="button"
               className="btn-margin"
               onClick={this.logout.bind(this)}
             >
               Log Out
-            </button>
+            </IconButton>
           )
         }
+          </AppBar>
+        </MuiThemeProvider>
       </div>
     );
   }
 }
+
+// App.propTypes = {
+//   auth: React.PropTypes.object.isRequired,
+// };
 
 export default App;

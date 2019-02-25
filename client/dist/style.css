@@ -1,0 +1,32 @@
+.button {
+  margin: 10px;
+  border-color: inherit;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(226, 224, 221)
+  
+}
+
+.userMain {
+  background-color: lavender;
+  /* margin: 0px;
+  background-image: url('http://clipartsign.com/dl.php?d=314');
+  background-repeat: no-repeat;
+  background-position: center; 
+  position: relative; */
+}
+
+.userBar {
+  background-color: blueviolet
+}
+
+.userBetList {
+  background-color: pink;
+}
+
+.userBetListItem {
+  background-color: orchid;
+}

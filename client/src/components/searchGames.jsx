@@ -2,8 +2,9 @@ import React from 'react';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
+import sampleData from './exampleData.js';
+import SearchGamesList from './searchGamesTeamListExisting.jsx';
 
 class Search extends React.Component {
   constructor() {
@@ -11,52 +12,37 @@ class Search extends React.Component {
 
     this.state = {
       selection: 'SEL',
+      games: [],
+      teams: sampleData,
     };
-    this.getGames = this.getGames.bind(this);
+    this.getTeams = this.getTeams.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.getGames = this.getGames.bind(this);
   }
 
-  componentDidMount() {
-    this.getGames()
-      .then((data) => {
-        this.setState({
-          games: data,
-        });
-      })
-      .catch((err) => {
-        console.log('err', err);
+  getGames(teamObject) {
+    // console.log(teamObject.team);
+    axios.post('/api/games', teamObject)
+      .then(({ data }) => data).then((data) => {
+        // console.log(data);
+        this.setState({ games: data });
+        // console.log(this.state);
       });
   }
 
-  getGames() {
-    return axios.get('/api/allGames')
+  getTeams() {
+    return axios.get('/api/allTeams')
     // Once we get the Data Back from the APi we need to structure and Save in DB
       .then(({ data }) => { console.log(data); });
   }
 
   handleChange(event, index, value) {
     this.setState({ selection: value });
+    this.getGames({ team: value });
   }
-
-  pageControl() {
-    if (this.state.selection === 'ORL') {
-      return (
-        <div>Orlando</div>
-      );
-    } if (this.state.selection === 'NOP') {
-      return (
-        <div>New Orleans Pelicans</div>
-      );
-    } if (this.state.selection === 'LAL') {
-      return (
-        <div>Los Angeles Lakers</div>
-      );
-    }
-    return null;
-  }
-
 
   render() {
+    const { games, teams, selection } = this.state;
     return (
       <div>
         <MuiThemeProvider>
@@ -94,14 +80,17 @@ class Search extends React.Component {
             <MenuItem value="OKC" primaryText="Thunder" />
             <MenuItem value="POR" primaryText="Trail Blazers" />
             <MenuItem value="GSW" primaryText="Warriors" />
-            <MenuItem value="WAS" primaryText="Wizzards" />
+            <MenuItem value="WAS" primaryText="Wizards" />
           </DropDownMenu>
         </MuiThemeProvider>
+        <SearchGamesList 
+          games={games}
+          teams={teams}
+          selection={selection}
+        />
       </div>
     );
   }
 }
-
-// ReactDOM.render(<Search />, document.getElementById('app'));
 
 export default Search;
