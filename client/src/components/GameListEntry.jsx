@@ -1,8 +1,8 @@
 import React from 'react';
 
 const GameListEntry = ({ game, onClick }) => (
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
   <div className="game-list-entry">
-    <div className="game-body">
       <div className="game-list-detail" key={game.homeTeamImage} onClick={() => { onClick(game); }}>
         <table is="table">
         <tbody>
