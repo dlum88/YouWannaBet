@@ -1,7 +1,6 @@
 /* eslint import/extensions: 0 */
 import React from 'react';
 import axios from 'axios';
-
 import User from './User.jsx';
 
 
@@ -9,17 +8,44 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userBets: [],
-      userInfo: [],
+      userBets: [{
+        date: '2/25/2018',
+        wager: 600,
+        team_away: 'Portland Trail Blazers',
+        team_home: 'Cleveland Cavaliers',
+        opponent: 'frank_enstein',
+        userWinnerChoice: 'Cleveland Cavaliers',
+      },
+      {
+        date: '2/25/2018',
+        wager: 600,
+        team_away: 'Portland Trail Blazers',
+        team_home: 'Cleveland Cavaliers',
+        opponent: 'frank_enstein',
+        userWinnerChoice: 'Cleveland Cavaliers',
+      },
+      {
+        date: '2/25/2018',
+        wager: 600,
+        team_away: 'Portland Trail Blazers',
+        team_home: 'Cleveland Cavaliers',
+        opponent: 'frank_enstein',
+        userWinnerChoice: 'Cleveland Cavaliers',
+      },
+      {
+        date: '2/25/2018',
+        wager: 600,
+        team_away: 'Portland Trail Blazers',
+        team_home: 'Cleveland Cavaliers',
+        opponent: 'frank_enstein',
+        userWinnerChoice: 'Cleveland Cavaliers',
+      },
+      ],
     };
   }
 
   componentDidMount() {
-    // send request to server to retrieve users live bets
-    // where user is poster and acceptor
-    // need to send userId
-
-    const userId = 2; // NEED TO FIX THIS!!!!! how to find userId???
+    const userId = 6;
 
     axios.get(`/api/userBets/${userId}`)
       .then((userBet) => {
@@ -30,28 +56,12 @@ class Dashboard extends React.Component {
       .catch((err) => {
         console.log(err, 'unable to get userBets');
       });
-
-    // send request to server to retrieve the username and userpoints
-    // need to send userId
-    axios.get(`/api/userInfo/${userId}`)
-      .then((user) => {
-        this.setState({
-          userInfo: user.data.rows,
-        });
-      })
-      .catch((err) => {
-        console.log(err, 'unable to get userInfo');
-      });
   }
 
   render() {
-    const { userBets, userInfo } = this.state;
-    console.log(userBets);
+    const { userBets } = this.state;
     return (
-      <User
-        userBets={userBets}
-        userInfo={userInfo}
-      />
+      <User userBets={userBets} />
     );
   }
 }

@@ -58,16 +58,6 @@ class App extends Component {
             </IconButton>
           )
         }
-            {/* {
-              isAuthenticated() && (
-                <IconButton
-                  className="btn-margin"
-                  onClick={this.goTo.bind(this, 'profile')}
-                >
-                  Profile
-                </IconButton>
-              )
-            } */}
             {
           isAuthenticated() && (
             <IconButton
@@ -86,9 +76,5 @@ class App extends Component {
     );
   }
 }
-
-// App.propTypes = {
-//   auth: React.PropTypes.object.isRequired,
-// };
 
 export default App;

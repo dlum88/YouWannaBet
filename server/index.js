@@ -188,8 +188,8 @@ app.put('/api/bets/', (req, res) => {
 // updates single bet in DB (used when user accepts bet)
 app.patch('/api/bets/', (req, res) => {
   // takes in user id (acceptor) and bet id
-  const { acceptorId } = req.body;
-  const { betId } = req.body;
+  const acceptorId = req.query.acceptor;
+  const betId = req.query.id;
   // updates record in database
   db.updateBet(acceptorId, betId, (err, insertResult) => {
     if (err) {
@@ -317,6 +317,28 @@ app.get('/api/users', (req, res) => {
       // if no error
       // send back query results in res.send
       res.send(users);
+    }
+  });
+});
+
+// get user info by username
+app.get('/api/users/:username', (req, res) => {
+  const { username } = req.params;
+  db.getUserByUsername(username, (err, user) => {
+    if (err) {
+      console.log(err);
+      res.send(500);
+    } else if (user.length === 0) {
+      db.createUserByUsername(username, (error, newUser) => {
+        if (error) {
+          console.log(err);
+          res.sendStatus(500);
+        } else {
+          res.status(200).send(newUser);
+        }
+      });
+    } else {
+      res.status(200).send(user);
     }
   });
 });

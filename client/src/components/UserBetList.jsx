@@ -4,8 +4,7 @@ import UserBetListItem from './UserBetListItem.jsx';
 const UserBetList = ({userBets}) => (
   <div className="userBetList">
     <h3>UserBetList stuff</h3>
-    {/* {userBets.map(userBet => <UserBetListItem key={userBet.id} item={userBet} />)} */}
-
+    {userBets.map(userBet => <UserBetListItem key={userBet.id} userBet={userBet} />)}
   </div>
 );
 

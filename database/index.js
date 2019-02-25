@@ -26,11 +26,51 @@ pool.connect((error) => {
 
 module.exports.getAllUsers = (callback) => {
   pool.query('SELECT * FROM app_user', (error, response) => {
-    console.log(response.rows);
     if (error) {
       callback(error, null);
     } else {
       callback(null, response.rows);
+    }
+  });
+};
+
+// gets user from DB by username
+module.exports.getUserByUsername = (username, callback) => {
+  // query database
+  pool.query('SELECT * FROM app_user WHERE username = $1;',
+    [username], (error, user) => {
+      if (error) {
+        callback(error, null);
+      }
+      // user exists
+      // then return user
+      callback(null, user.rows);
+    });
+};
+
+// creates user based on username and sets default points
+module.exports.createUserByUsername = (username, callback) => {
+  // query database
+  pool.query('INSERT INTO app_user(username, points) VALUES ($1, 5000) RETURNING *;',
+    [username], (err, newUser) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        // then return user
+        callback(null, newUser.rows);
+      }
+    });
+};
+
+// helper function to query DB by ID to retrieve user name and points
+module.exports.getUserInfo = (userId, callback) => {
+  pool.query('SELECT * FROM app_user WHERE id_user = ($1);', [userId], (err, res) => {
+    if (err) {
+      console.log(err, 'there is an error getting the userInfo');
+      callback(err);
+    } else {
+      console.log('getuserInfo successful');
+      callback(null, res);
     }
   });
 };
@@ -184,23 +224,10 @@ module.exports.getBetsByTeam = (teamId, callback) => {
   });
 };
 
-// helper function to query DB to retrieve user name and points
-module.exports.getUserInfo = (userId, callback) => {
-  pool.query('SELECT * FROM app_user WHERE id_user = ($1)', [userId], (err, res) => {
-    if (err) {
-      console.log(err, 'there is an error getting the userInfo');
-      callback(err);
-    } else {
-      console.log('getuserInfo successful');
-      callback(null, res);
-    }
-  });
-};
-
 // helper function to query DB to retrieve user bets from acceptor and poster field
 // RETURNS wager amount, date, and foreign keys for game, acceptor and poster
 module.exports.getUserBets = (userId, callback) => {
-  pool.query('SELECT * FROM bet WHERE ($1) IN(id_user_acceptor, id_user_poster)', [userId], (err, res) => {
+  pool.query('SELECT * FROM bet WHERE ($1) IN (id_user_acceptor, id_user_poster)', [userId], (err, res) => {
     if (err) {
       console.log('there is an error getting the userbets');
       callback(err);
