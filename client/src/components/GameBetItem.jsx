@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 
 class GameBetItem extends React.Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class GameBetItem extends React.Component {
     return (
       <div>
         {this.state.bet.poster} has bet {this.state.bet.amount} for the Home Team to win.
-        <IconButton onClick={this.onClick}>{this.state.accepted ? 'Accepted' : 'Accept Bet'}</IconButton>
+        <Button size="small" variant="outlined" color="primary" onClick={this.onClick}>{this.state.accepted ? 'Accepted' : 'Accept Bet'}</Button>
       </div>
     );
   }

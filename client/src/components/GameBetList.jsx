@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import GameBetItem from './GameBetItem.jsx';
-import IconButton from '@material-ui/core/IconButton';
 
 class GameBetList extends React.Component {
   constructor(props) {
@@ -63,13 +66,33 @@ class GameBetList extends React.Component {
         {this.state.bets.map((bet, key) => <GameBetItem betInfo={bet} key={key} />)}
         <form onSubmit={this.handleSubmit}>
           <label>
-            <select value={this.state.value} onChange={this.handleSelection}>
+            {/* <select value={this.state.value} onChange={this.handleSelection}>
               <option value="homeTeam">{gameInfo.homeTeam}</option>
               <option value="awayTeam">{gameInfo.awayTeam}</option>
-            </select>
-            Amount: <input type="text" onChange={this.handleChange} />
+            </select> */}
+            <Select
+              value={this.state.value}
+              onChange={this.handleSelection}
+              // inputProps={{
+              //   name: 'age',
+              //   id: 'age-simple',
+              // }}
+            >
+              <MenuItem value="">
+                <em>Select Team</em>
+              </MenuItem>
+              <MenuItem value={"homeTeam"}>{gameInfo.homeTeam}</MenuItem>
+              <MenuItem value={"awayTeam"}>{gameInfo.awayTeam}</MenuItem>
+            </Select> <br />
+            <Input
+              placeholder="Amount"
+              inputProps={{
+                'aria-label': 'Description',
+              }}
+              onChange={this.handleChange}
+            /><br />
           </label>
-          <input type="submit" value="Post New Bet" />
+          <Button size="small" variant="outlined" color="primary" value="Post New Bet"> Post New Bet </Button>
         </form>
       </div>
     );

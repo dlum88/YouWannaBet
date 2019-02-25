@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+
+const styles = theme => ({
+  root: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+  },
+});
 
 class Profile extends Component {
   constructor(props) {
@@ -38,19 +49,17 @@ class Profile extends Component {
   render() {
     const { profile, points } = this.state;
     return (
-      <div className="container">
-        <div className="profile-area">
+      <Paper className={this.props.classes.root} elevation={1}>
+        <Typography variant="h5" component="h3">
           <img src={profile.picture} alt="profile" />
-          <div>
-            <h2> Welcome {profile.nickname} </h2>
-          </div>
-          <div>
-            <h3> You currently have { points } points. Go check out some games!</h3>
-          </div>
-        </div>
-      </div>
+          <h2> Welcome {profile.nickname} </h2>
+        </Typography>
+        <Typography component="p">
+          <h3> You currently have { points } points. Go check out some games!</h3>
+        </Typography>
+      </Paper>
     );
   }
 }
 
-export default Profile;
+export default withStyles(styles)(Profile);
