@@ -6,6 +6,7 @@ import axios from 'axios';
 import GameBetList from './GameBetList.jsx';
 import sampleData from './exampleData.js';
 import SearchGamesList from './searchGamesTeamListExisting.jsx';
+import imageLinks from './imageLinks.jsx';
 
 class Search extends React.Component {
   constructor() {
@@ -17,6 +18,7 @@ class Search extends React.Component {
       teams: sampleData,
       view: 'Search',
       game: {},
+      imageLinks: imageLinks,
     };
     this.getTeams = this.getTeams.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -54,7 +56,7 @@ class Search extends React.Component {
 
   render() {
     const {
-      games, teams, selection, view, game,
+      games, teams, selection, view, game, imageLinks,
     } = this.state;
     return (
       <div>
@@ -102,6 +104,7 @@ class Search extends React.Component {
             teams={teams}
             selection={selection}
             onClick={this.onClick}
+            imageLinks={imageLinks}
           />
         ) : <GameBetList gameInfo={game} />}
 

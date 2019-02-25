@@ -12,6 +12,7 @@ const data = [
     urlName: 'hawks',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/dVOYa1d.png',
   },
   {
     isNBAFranchise: true,
@@ -25,6 +26,7 @@ const data = [
     urlName: 'celtics',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/eSXRefZ.png',
   },
   {
     isNBAFranchise: true,
@@ -38,6 +40,7 @@ const data = [
     urlName: 'nets',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/XMdohJg.png',
   },
   {
     isNBAFranchise: true,
@@ -51,6 +54,7 @@ const data = [
     urlName: 'hornets',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/sdyAefA.png',
   },
   {
     isNBAFranchise: true,
@@ -64,6 +68,7 @@ const data = [
     urlName: 'bulls',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/VkJWahl.png',
   },
   {
     isNBAFranchise: true,
@@ -77,6 +82,7 @@ const data = [
     urlName: 'cavaliers',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/1SQFjkp.png',
   },
   {
     isNBAFranchise: true,
@@ -90,6 +96,7 @@ const data = [
     urlName: 'mavericks',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/ZIKdAK8.png',
   },
   {
     isNBAFranchise: true,
@@ -103,6 +110,7 @@ const data = [
     urlName: 'nuggets',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/ADmVfDV.png',
   },
   {
     isNBAFranchise: true,
@@ -116,6 +124,7 @@ const data = [
     urlName: 'pistons',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/r6AzUcs.png',
   },
   {
     isNBAFranchise: true,
@@ -129,6 +138,7 @@ const data = [
     urlName: 'warriors',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/ahEVGDX.png',
   },
   {
     isNBAFranchise: true,
@@ -142,6 +152,7 @@ const data = [
     urlName: 'rockets',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/Z80BEZD.png',
   },
   {
     isNBAFranchise: true,
@@ -155,6 +166,7 @@ const data = [
     urlName: 'pacers',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/K9AvzPA.png',
   },
   {
     isNBAFranchise: true,
@@ -168,6 +180,7 @@ const data = [
     urlName: 'clippers',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/fLXtlz9.png',
   },
   {
     isNBAFranchise: true,
@@ -181,6 +194,7 @@ const data = [
     urlName: 'lakers',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/FZHFMp3.png',
   },
   {
     isNBAFranchise: true,
@@ -194,6 +208,7 @@ const data = [
     urlName: 'grizzlies',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/v2wAUlK.png"',
   },
   {
     isNBAFranchise: true,
@@ -207,6 +222,7 @@ const data = [
     urlName: 'heat',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/uO7qMiT.png',
   },
   {
     isNBAFranchise: true,
@@ -220,6 +236,7 @@ const data = [
     urlName: 'bucks',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/wqHhd1h.png',
   },
   {
     isNBAFranchise: true,
@@ -233,6 +250,7 @@ const data = [
     urlName: 'timberwolves',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/3eOUK3x.png',
   },
   {
     isNBAFranchise: true,
@@ -246,6 +264,7 @@ const data = [
     urlName: 'pelicans',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/99sUMgQ.png',
   },
   {
     isNBAFranchise: true,
@@ -259,6 +278,7 @@ const data = [
     urlName: 'knicks',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/FXPOBR6.png',
   },
   {
     isNBAFranchise: true,
@@ -272,6 +292,7 @@ const data = [
     urlName: 'thunder',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/MyMQHCN.png',
   },
   {
     isNBAFranchise: true,
@@ -285,6 +306,7 @@ const data = [
     urlName: 'magic',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/7jkkqEK.png',
   },
   {
     isNBAFranchise: true,
@@ -298,6 +320,7 @@ const data = [
     urlName: 'sixers',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/QNULjIC.png',
   },
   {
     isNBAFranchise: true,
@@ -311,6 +334,7 @@ const data = [
     urlName: 'suns',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/1YrZuiC.png',
   },
   {
     isNBAFranchise: true,
@@ -324,6 +348,7 @@ const data = [
     urlName: 'blazers',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/qg2YCWG.png',
   },
   {
     isNBAFranchise: true,
@@ -337,6 +362,7 @@ const data = [
     urlName: 'kings',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/YV79rfC.png',
   },
   {
     isNBAFranchise: true,
@@ -350,6 +376,7 @@ const data = [
     urlName: 'spurs',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/2NovGpG.png',
   },
   {
     isNBAFranchise: true,
@@ -363,6 +390,7 @@ const data = [
     urlName: 'raptors',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/lhpoaTx.png',
   },
   {
     isNBAFranchise: true,
@@ -376,6 +404,7 @@ const data = [
     urlName: 'jazz',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/PWSDKSK.png',
   },
   {
     isNBAFranchise: true,
@@ -389,6 +418,7 @@ const data = [
     urlName: 'wizards',
     confName: 'summer',
     divName: '',
+    image: 'https://i.imgur.com/DE5fgQ7.png',
   },
 ];
 

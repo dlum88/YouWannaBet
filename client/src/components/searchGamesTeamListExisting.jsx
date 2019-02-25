@@ -7,6 +7,7 @@ const SearchGamesList = (props) => {
   let selection = props.selection;
   let currentTeam = 'Team Selected';
   let teamId;
+  let imageLinks = props.imageLinks;
   teams.forEach((team) => {
     if (team.tricode === selection) {
       currentTeam = team.fullName;
@@ -33,11 +34,13 @@ const SearchGamesList = (props) => {
       let date = game.homeStartDate;
       date = date.split('');
       date = `${date[0]}${date[1]}${date[2]}${date[3]}-${date[4]}${date[5]}-${date[6]}${date[7]}`;
-      formattedGame.Date = date;
+      formattedGame.date = date;
       if (game.hTeam.teamId === teams[i].teamId) {
         formattedGame.homeTeam = teams[i].fullName;
+        formattedGame.homeTeamImage = teams[i].image;
       } else if (game.vTeam.teamId === teams[i].teamId) {
         formattedGame.awayTeam = teams[i].fullName;
+        formattedGame.awayTeamImage = teams[i].image;
       }
       formattedGame.currentId = teamId;
     }
@@ -52,6 +55,7 @@ const SearchGamesList = (props) => {
           game={game}
           id={game.currentId}
           onClick={onClick}
+          imageLinks={imageLinks}
         />
       ), 
       )}
