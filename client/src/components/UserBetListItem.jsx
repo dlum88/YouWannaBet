@@ -30,7 +30,6 @@ class UserBetListItem extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
 
     const { userBet } = this.props;
 
@@ -61,13 +60,6 @@ class UserBetListItem extends React.Component {
           </Button>
         </CardActions>
       </Card>
-=======
-    const { userBet } = this.props;
-    return (
-      <div className="userBetListItem">
-        <h3>On {userBet.userWinnerChoice} Against {userBet.opponent} for {userBet.team_home} vs. {userBet.team_away} for {userBet.wager}</h3>
-      </div>
->>>>>>> 623581ffb8a0206cb8bfd42c9181211fd84b8c0a
     );
   }
 }
