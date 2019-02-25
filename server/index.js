@@ -13,7 +13,7 @@ process.env.PWD = process.cwd();
 // app.use(express.static(`${__dirname}/../client/dist`));
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 // app.use(express.static(`${process.env.PWD}../client/dist`));
-
+ 
 // Set Express to use body-parser as a middleware //
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
