@@ -57,15 +57,15 @@ class Dashboard extends React.Component {
   componentDidMount() {
     const userId = 6;
 
-    axios.get(`/api/userBets/${userId}`)
-      .then((userBet) => {
-        this.setState({
-          userBets: userBet.data.rows,
-        });
-      })
-      .catch((err) => {
-        console.log(err, 'unable to get userBets');
-      });
+    // axios.get(`/api/userBets/${userId}`)
+    //   .then((userBet) => {
+    //     this.setState({
+    //       userBets: userBet.data.rows,
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err, 'unable to get userBets');
+    //   });
   }
 
   render() {
